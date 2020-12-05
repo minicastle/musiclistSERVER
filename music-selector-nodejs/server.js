@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
+const port = process.env.PORT || 5000
 const mysql = require("mysql");
 const db = mysql.createConnection({
     host:"localhost",
@@ -14,7 +15,7 @@ db.connect();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
-app.listen(5000,function(){
+app.listen(port,function(){
     console.log(`Listening on port 5000`);
 });
 
